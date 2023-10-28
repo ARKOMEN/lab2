@@ -41,23 +41,57 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/artemiy/CLionProjects/lab2/cmake-build-debug/
 # =============================================================================
+# Object build statements for OBJECT_LIBRARY target corelib
+
+
+#############################################
+# Order-only phony target for corelib
+
+build cmake_object_order_depends_target_corelib: phony || CMakeFiles/corelib.dir
+
+build CMakeFiles/corelib.dir/ConfigParser.cpp.o: CXX_COMPILER__corelib_unscanned_Debug /home/artemiy/CLionProjects/lab2/ConfigParser.cpp || cmake_object_order_depends_target_corelib
+  DEP_FILE = CMakeFiles/corelib.dir/ConfigParser.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always -Wall -Wextra -pedantic -Werror
+  OBJECT_DIR = CMakeFiles/corelib.dir
+  OBJECT_FILE_DIR = CMakeFiles/corelib.dir
+
+build CMakeFiles/corelib.dir/NewWAV.cpp.o: CXX_COMPILER__corelib_unscanned_Debug /home/artemiy/CLionProjects/lab2/NewWAV.cpp || cmake_object_order_depends_target_corelib
+  DEP_FILE = CMakeFiles/corelib.dir/NewWAV.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always -Wall -Wextra -pedantic -Werror
+  OBJECT_DIR = CMakeFiles/corelib.dir
+  OBJECT_FILE_DIR = CMakeFiles/corelib.dir
+
+build CMakeFiles/corelib.dir/processor.cpp.o: CXX_COMPILER__corelib_unscanned_Debug /home/artemiy/CLionProjects/lab2/processor.cpp || cmake_object_order_depends_target_corelib
+  DEP_FILE = CMakeFiles/corelib.dir/processor.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always -Wall -Wextra -pedantic -Werror
+  OBJECT_DIR = CMakeFiles/corelib.dir
+  OBJECT_FILE_DIR = CMakeFiles/corelib.dir
+
+build CMakeFiles/corelib.dir/WAVparser.cpp.o: CXX_COMPILER__corelib_unscanned_Debug /home/artemiy/CLionProjects/lab2/WAVparser.cpp || cmake_object_order_depends_target_corelib
+  DEP_FILE = CMakeFiles/corelib.dir/WAVparser.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always -Wall -Wextra -pedantic -Werror
+  OBJECT_DIR = CMakeFiles/corelib.dir
+  OBJECT_FILE_DIR = CMakeFiles/corelib.dir
+
+
+
+#############################################
+# Object library corelib
+
+build corelib: phony CMakeFiles/corelib.dir/ConfigParser.cpp.o CMakeFiles/corelib.dir/NewWAV.cpp.o CMakeFiles/corelib.dir/processor.cpp.o CMakeFiles/corelib.dir/WAVparser.cpp.o
+
+# =============================================================================
 # Object build statements for EXECUTABLE target lab2
 
 
 #############################################
 # Order-only phony target for lab2
 
-build cmake_object_order_depends_target_lab2: phony || CMakeFiles/lab2.dir
+build cmake_object_order_depends_target_lab2: phony || cmake_object_order_depends_target_corelib
 
 build CMakeFiles/lab2.dir/main.cpp.o: CXX_COMPILER__lab2_unscanned_Debug /home/artemiy/CLionProjects/lab2/main.cpp || cmake_object_order_depends_target_lab2
   DEP_FILE = CMakeFiles/lab2.dir/main.cpp.o.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/lab2.dir
-  OBJECT_FILE_DIR = CMakeFiles/lab2.dir
-
-build CMakeFiles/lab2.dir/sourse.cpp.o: CXX_COMPILER__lab2_unscanned_Debug /home/artemiy/CLionProjects/lab2/sourse.cpp || cmake_object_order_depends_target_lab2
-  DEP_FILE = CMakeFiles/lab2.dir/sourse.cpp.o.d
-  FLAGS = -g -fdiagnostics-color=always
+  FLAGS = -g -fdiagnostics-color=always -Wall -Wextra -pedantic -Werror
   OBJECT_DIR = CMakeFiles/lab2.dir
   OBJECT_FILE_DIR = CMakeFiles/lab2.dir
 
@@ -69,7 +103,7 @@ build CMakeFiles/lab2.dir/sourse.cpp.o: CXX_COMPILER__lab2_unscanned_Debug /home
 #############################################
 # Link the executable lab2
 
-build lab2: CXX_EXECUTABLE_LINKER__lab2_Debug CMakeFiles/lab2.dir/main.cpp.o CMakeFiles/lab2.dir/sourse.cpp.o
+build lab2: CXX_EXECUTABLE_LINKER__lab2_Debug CMakeFiles/corelib.dir/ConfigParser.cpp.o CMakeFiles/corelib.dir/NewWAV.cpp.o CMakeFiles/corelib.dir/processor.cpp.o CMakeFiles/corelib.dir/WAVparser.cpp.o CMakeFiles/lab2.dir/main.cpp.o || corelib
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/lab2.dir
   POST_BUILD = :
@@ -111,7 +145,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/artemiy/CLionProjects/lab2/cmake-build-debug
 
-build all: phony lab2
+build all: phony corelib lab2
 
 # =============================================================================
 # Built-in targets
