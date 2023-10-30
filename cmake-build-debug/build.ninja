@@ -61,8 +61,8 @@ build CMakeFiles/corelib.dir/NewWAV.cpp.o: CXX_COMPILER__corelib_unscanned_Debug
   OBJECT_DIR = CMakeFiles/corelib.dir
   OBJECT_FILE_DIR = CMakeFiles/corelib.dir
 
-build CMakeFiles/corelib.dir/processor.cpp.o: CXX_COMPILER__corelib_unscanned_Debug /home/artemiy/CLionProjects/lab2/processor.cpp || cmake_object_order_depends_target_corelib
-  DEP_FILE = CMakeFiles/corelib.dir/processor.cpp.o.d
+build CMakeFiles/corelib.dir/Processor.cpp.o: CXX_COMPILER__corelib_unscanned_Debug /home/artemiy/CLionProjects/lab2/Processor.cpp || cmake_object_order_depends_target_corelib
+  DEP_FILE = CMakeFiles/corelib.dir/Processor.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always -Wall -Wextra -pedantic -Werror
   OBJECT_DIR = CMakeFiles/corelib.dir
   OBJECT_FILE_DIR = CMakeFiles/corelib.dir
@@ -78,7 +78,7 @@ build CMakeFiles/corelib.dir/WAVparser.cpp.o: CXX_COMPILER__corelib_unscanned_De
 #############################################
 # Object library corelib
 
-build corelib: phony CMakeFiles/corelib.dir/ConfigParser.cpp.o CMakeFiles/corelib.dir/NewWAV.cpp.o CMakeFiles/corelib.dir/processor.cpp.o CMakeFiles/corelib.dir/WAVparser.cpp.o
+build corelib: phony CMakeFiles/corelib.dir/ConfigParser.cpp.o CMakeFiles/corelib.dir/NewWAV.cpp.o CMakeFiles/corelib.dir/Processor.cpp.o CMakeFiles/corelib.dir/WAVparser.cpp.o
 
 # =============================================================================
 # Object build statements for EXECUTABLE target lab2
@@ -103,7 +103,7 @@ build CMakeFiles/lab2.dir/main.cpp.o: CXX_COMPILER__lab2_unscanned_Debug /home/a
 #############################################
 # Link the executable lab2
 
-build lab2: CXX_EXECUTABLE_LINKER__lab2_Debug CMakeFiles/corelib.dir/ConfigParser.cpp.o CMakeFiles/corelib.dir/NewWAV.cpp.o CMakeFiles/corelib.dir/processor.cpp.o CMakeFiles/corelib.dir/WAVparser.cpp.o CMakeFiles/lab2.dir/main.cpp.o || corelib
+build lab2: CXX_EXECUTABLE_LINKER__lab2_Debug CMakeFiles/corelib.dir/ConfigParser.cpp.o CMakeFiles/corelib.dir/NewWAV.cpp.o CMakeFiles/corelib.dir/Processor.cpp.o CMakeFiles/corelib.dir/WAVparser.cpp.o CMakeFiles/lab2.dir/main.cpp.o || corelib
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/lab2.dir
   POST_BUILD = :

@@ -3,7 +3,7 @@
 #include <vector>
 
 class NewWAV{
-    struct NewWAV_header {
+    struct _NewWavHeader {
         uint8_t _chunkId[4] = {'R', 'I', 'F', 'F'};
         uint32_t _chunkSize;
         uint8_t _format[4] = {'W', 'A', 'V', 'E'};
@@ -17,10 +17,10 @@ class NewWAV{
         uint16_t _bitsPerSample = 16;
         uint8_t _subchunk2Id[4] = {'D', 'A', 'T', 'A'};
         uint32_t _subchunk2Size;
-    }NewWAV_header;
+    }_NewWavHeader;
 
-    std::ofstream _out_file;
+    std::ofstream _outFile;
 
 public:
-    NewWAV(std::vector<int16_t> data, uint32_t data_size);
+    NewWAV(std::vector<int16_t> data, uint32_t dataSize);
 };

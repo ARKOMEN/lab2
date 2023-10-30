@@ -14,20 +14,14 @@ int main(int argc, char** argv) {
             config = argv[i];
         }
     }
-    vector<wav_parser> headers;
+    vector<WavParser> headers;
     for(int i = 0; i < argc - 2; i++){
-        wav_parser header(inputs[i]);
+        WavParser header(inputs[i]);
         headers.push_back(header);
     }
-    config_parser Config(config, headers);
+    ConfigParser Config(config, headers);
     return 0;
 }
-//fstream tellg seekg
 //string_view
 //фабричный метод
 //почитать про virtual override
-//RIFF
-//...
-//fmt
-//...
-//data

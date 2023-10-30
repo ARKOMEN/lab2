@@ -3,9 +3,8 @@
 #include "WAVparser.h"
 #include "NewWAV.h"
 
-class config_parser{
-    std::string _name_config;
-    std::vector<wav_parser> _headers;
+class ConfigParser{
+    std::vector<WavParser> _headers;
 public:
-    config_parser(std::string& name_file, std::vector<wav_parser>& headers);
+    ConfigParser(std::string& nameFile, std::vector<WavParser>& headers);
 };

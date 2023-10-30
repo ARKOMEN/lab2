@@ -1,8 +1,8 @@
 #include "WAVparser.h"
 
-wav_parser::wav_parser(std::string& name_file) : _name_wav_file(name_file){
-    std::ifstream File(_name_wav_file, std::ios::binary);
-    File.read(reinterpret_cast<char*>(&RIFF), sizeof (RIFF));
+WavParser::WavParser(std::string& nameFile) : _nameWavFile(nameFile){
+    std::ifstream File(_nameWavFile, std::ios::binary);
+    File.read(reinterpret_cast<char*>(&_RIFF), sizeof (_RIFF));
     do{
         File.read(reinterpret_cast<char*>(&_subchunk1Id), sizeof (_subchunk1Id));
         File.read(reinterpret_cast<char*>(&_bufSize), sizeof (_bufSize));
@@ -14,7 +14,7 @@ wav_parser::wav_parser(std::string& name_file) : _name_wav_file(name_file){
             break;
         }
     } while (File.good());
-    File.read(reinterpret_cast<char*>(&fmt), sizeof (fmt));
+    File.read(reinterpret_cast<char*>(&_fmt), sizeof (_fmt));
     do{
         File.read(reinterpret_cast<char*>(&_subchunk2Id), sizeof (_subchunk2Id));
         File.read(reinterpret_cast<char*>(&_bufSize), sizeof (_bufSize));
@@ -29,22 +29,22 @@ wav_parser::wav_parser(std::string& name_file) : _name_wav_file(name_file){
     _here = File.tellg();
 }
 
-std::vector<int16_t> wav_parser::get_data() {
-    std::ifstream File(_name_wav_file, std::ios::binary);
+std::vector<int16_t> WavParser::getData() {
+    std::ifstream File(_nameWavFile, std::ios::binary);
     std::vector<int16_t> data;
     int16_t buf;
     File.seekg(_here);
-    for(uint32_t i = 0; i < this->get_data_size(); ++i) {
+    for(uint32_t i = 0; i < this->getDataSize(); ++i) {
         File.read(reinterpret_cast<char *>(&buf),sizeof(buf));
         data.push_back(buf);
     }
     return data;
 }
 
-uint32_t wav_parser::get_data_size() {
+uint32_t WavParser::getDataSize() {
     return this->_subchunk2Size;
 }
 
-uint32_t wav_parser::get_byteRate() {
-    return this->fmt.byteRate;
+uint32_t WavParser::getByteRate() {
+    return this->_fmt._byteRate;
 }
