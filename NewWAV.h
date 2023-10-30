@@ -15,12 +15,12 @@ class NewWAV{
         uint32_t _byteRate = 44100 * 2;
         uint16_t _blockAlign = 2;
         uint16_t _bitsPerSample = 16;
-        uint8_t _subchunk2Id[4] = {'L', 'I', 'S', 'T'};
+        uint8_t _subchunk2Id[4] = {'D', 'A', 'T', 'A'};
         uint32_t _subchunk2Size;
     }NewWAV_header;
 
     std::ofstream _out_file;
 
 public:
-    NewWAV(std::vector<char> data, uint32_t data_size);
+    NewWAV(std::vector<int16_t> data, uint32_t data_size);
 };

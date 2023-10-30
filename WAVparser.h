@@ -9,9 +9,9 @@ class wav_parser{
         uint8_t format[4];
     }RIFF;
 
-    uint8_t subchunk1Id[4];
+    uint8_t _subchunk1Id[4];
+    uint32_t _subchunk1Size;
     struct fmt{
-        uint32_t subchunk1Size;
         uint16_t audioFormat;
         uint16_t numChannels;
         uint32_t sampleRate;
@@ -20,15 +20,17 @@ class wav_parser{
         uint16_t bitsPerSample;
     }fmt;
 
-    uint8_t  subchunk2Id[4];
-    uint32_t subchunk2Size;
+    uint8_t  _subchunk2Id[4];
+    uint32_t _subchunk2Size;
 
     std::string _name_wav_file;
 
-    std::streampos here;
+    std::streampos _here;
+
+    uint32_t _bufSize;
 public:
     wav_parser(std::string& name_file);
-    std::vector<char> get_data();
+    std::vector<int16_t> get_data();
     uint32_t get_data_size();
     uint32_t get_byteRate();
 };
