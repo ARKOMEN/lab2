@@ -31,7 +31,7 @@ config_parser::config_parser(std::string& name_file, std::vector<wav_parser>& he
                 in_process = true;
             }
             else{
-                object.mix(headers[n].get_data(), headers[n].get_data_size());
+                object.mix(headers[n - 1].get_data(), headers[n - 1].get_data_size());
             }
         }
         else{
