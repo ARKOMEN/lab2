@@ -1,2 +1,2 @@
-mute 0 5
-mix 2 0
+mute 10 5
+mix 2 5

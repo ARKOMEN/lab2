@@ -1,14 +1,21 @@
 #include "iostream"
 #include "vector"
+#include "Converter.h"
 
-class Processor{
+class processorMix : public Converter{
+    std::vector<int16_t> &_data1;
+    std::vector<int16_t> &_data2;
+    uint32_t _from;
 public:
-    uint32_t newSize;
-    uint32_t muteSize;
-    std::vector<int16_t> newData;
-    uint32_t from;
-    std::vector<int16_t> mute(std::vector<int16_t> data);
-    void mute();
-    void mix(std::vector<int16_t> data_1, std::vector<int16_t> data_2, uint32_t size_1, uint32_t size_2);
-    void mix(std::vector<int16_t> data_2, uint32_t size_2);
+    processorMix(std::vector<int16_t> &data1, std::vector<int16_t> &data2, uint32_t from);
+    void converter() override;
+};
+
+class processorMute : public Converter{
+    std::vector<int16_t> &_data;
+    uint32_t _from;
+    uint32_t _lenght;
+public:
+    processorMute(std::vector<int16_t> &data, uint32_t from, uint32_t lenght);
+    void converter() override;
 };
