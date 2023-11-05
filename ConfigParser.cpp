@@ -1,6 +1,6 @@
 #include "ConfigParser.h"
 
-ConfigParser::ConfigParser(std::string &nameFile, std::vector<WavParser> &headers, int n){
+void configParser(std::string& nameFile, std::vector<WavParser>& headers, int n){
     std::ifstream File(nameFile);
     std::string line;
     std::size_t pos;

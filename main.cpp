@@ -32,6 +32,6 @@ int main(int argc, char** argv) {
         WavParser header(inputs[i]);
         headers.push_back(header);
     }
-    ConfigParser Config(config, headers, argc - 2);
+    configParser(config, headers, argc - 2);
     return 0;
 }

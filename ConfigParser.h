@@ -4,7 +4,4 @@
 #include "NewWAV.h"
 #include "Processor.h"
 
-class ConfigParser{
-public:
-    ConfigParser(std::string& nameFile, std::vector<WavParser>& headers, int num);
-};
+void configParser(std::string& nameFile, std::vector<WavParser>& headers, int num);
